@@ -17,6 +17,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   flex-direction: row;
+  /* flex-wrap: nowrap; */
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -36,38 +37,79 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .side-bar {
 	display: flex;
-	width: 20%;
-	height: 100%;
+	width: 24%;
+	/* height: 100%; */
 	background-color: #1F1E3D;
 	flex-direction: column;
 }
 
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
 main {
   height: 100%;
-  width: 80%;
+  width: 76%;
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .form-box {
   display: flex;
-  height: 50%;
+  height: 43%;
   background-color: #A8AAD1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .card-box {
+  display: flex;
+  background-color: #EAEAF4;
+  flex-direction: column;
+  height: 57%;
+}
 
+.card {
+  height: 50%;
+  width: 29%;
+  /* display: flex; */
+  flex-direction: column;
+  /* padding: 2vh; */
+  border: solid;
+  border-color: #37376B;
+  border-width: 3px;
+  margin: 2vh;
 }
 
 .top-bar {
+  display: flex;
+  height: 12%;
   background-color: #1F1E3D;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .idea-section {
   background-color: #EAEAF4;
+  height: 76%;
 }
 
 .bottom-bar {
+  display: flex;
+  height: 12%;
   background-color: #5356A5;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  height: 3vh;
 }
 
 /* .menu {
