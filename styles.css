@@ -1,0 +1,163 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+	font-family: 'Open Sans', sans-serif;
+}
+body {
+  /* display: flex; */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  flex-direction: row;
+  /* flex-wrap: nowrap; */
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*~~~~~~~~~~~~~~~END RESET~~~~~~~~~~~~~~~~~~~~~*/
+
+.hidden {
+	display: none!important;
+}
+
+h1 {
+  color: #E9E9F3;
+  margin-left: 6%;
+}
+
+hr {
+  /* border-color: #353567; */
+  border: 1px solid #353567;
+}
+
+.filter-sidebar {
+  color: #5356A5;
+  margin-left: 6%;
+
+}
+
+.show-starred-button {
+  background-color: #474A9A;
+  color: white;
+  width: 80%;
+  height: 4%;
+}
+
+.side-bar {
+	display: flex;
+	width: 24%;
+	/* height: 100%; */
+	background-color: #1F1E3D;
+	flex-direction: column;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+main {
+  height: 100%;
+  width: 76%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-box {
+  display: flex;
+  height: 43%;
+  background-color: #A8AAD1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.input-fields {
+  display: flex;
+  height: 100%;
+  width: 52%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.title-input {display: flex;flex-direction: column;}
+
+.body-input {display: flex;flex-direction: column;}
+
+.search-input {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+}
+
+.search-ideas {
+  width: 94%;
+}
+
+.card-box {
+  display: flex;
+  background-color: #EAEAF4;
+  flex-direction: column;
+  height: 57%;
+}
+
+.card {
+  height: 50%;
+  width: 29%;
+  /* display: flex; */
+  flex-direction: column;
+  /* padding: 2vh; */
+  border: solid;
+  border-color: #37376B;
+  border-width: 3px;
+  margin: 2vh;
+}
+
+.top-bar {
+  display: flex;
+  height: 12%;
+  background-color: #1F1E3D;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.idea-section {
+  background-color: #EAEAF4;
+  height: 76%;
+}
+
+.bottom-bar {
+  display: flex;
+  height: 12%;
+  background-color: #5356A5;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  height: 3vh;
+}
+
+/* .menu {
+this is not currently in use
+	background-color: #353567;
+} */
