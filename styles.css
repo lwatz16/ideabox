@@ -13,8 +13,10 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 body {
+  /* display: flex; */
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  flex-direction: row;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -32,10 +34,43 @@ p, h1, h2, h3, h4, h5, h6 {
 	display: none!important;
 }
 
-nav {
+.side-bar {
+	display: flex;
+	width: 20%;
+	height: 100%;
 	background-color: #1F1E3D;
+	flex-direction: column;
 }
 
-.menu {
-	background-color: #353567;
+main {
+  height: 100%;
+  width: 80%;
+  display: flex;
 }
+
+.form-box {
+  display: flex;
+  height: 50%;
+  background-color: #A8AAD1;
+}
+
+.card-box {
+
+}
+
+.top-bar {
+  background-color: #1F1E3D;
+}
+
+.idea-section {
+  background-color: #EAEAF4;
+}
+
+.bottom-bar {
+  background-color: #5356A5;
+}
+
+/* .menu {
+this is not currently in use
+	background-color: #353567;
+} */
