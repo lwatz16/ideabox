@@ -35,6 +35,29 @@ p, h1, h2, h3, h4, h5, h6 {
 	display: none!important;
 }
 
+h1 {
+  color: #E9E9F3;
+  margin-left: 6%;
+}
+
+hr {
+  /* border-color: #353567; */
+  border: 1px solid #353567;
+}
+
+.filter-sidebar {
+  color: #5356A5;
+  margin-left: 6%;
+
+}
+
+.show-starred-button {
+  background-color: #474A9A;
+  color: white;
+  width: 80%;
+  height: 4%;
+}
+
 .side-bar {
 	display: flex;
 	width: 24%;
@@ -66,6 +89,28 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.input-fields {
+  display: flex;
+  height: 100%;
+  width: 52%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.title-input {display: flex;flex-direction: column;}
+
+.body-input {display: flex;flex-direction: column;}
+
+.search-input {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+}
+
+.search-ideas {
+  width: 94%;
 }
 
 .card-box {
