@@ -8,6 +8,16 @@ var searchIdeas = document.getElementById('search-ideas');
 var cardBox = document.querySelector('.card-box');
 
 saveButton.addEventListener('click', createIdea);
+// title.addEventListener('input', activateSaveButton);
+// body.addEventListener('input', activateSaveButton);
+saveButton.disabled = true;
+body.addEventListener('input', event => {
+  if (titleInput.value.length > 0 && bodyInput.value.length > 0) {
+    saveButton.disabled = false;
+  }
+})
+
+
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value)
@@ -17,12 +27,18 @@ function createIdea() {
   // bodyInput.value = "";
   clearInput(titleInput);
   clearInput(bodyInput);
+  saveButton.disabled = true;
 }
 
 function clearInput(input){
   input.value = "";
 }
 
+// function activateSaveButton(){
+//   if (titleInput && bodyInput) {
+//     saveButton.disabled = false;
+//   }
+// }
 
 function makeCard() {
   cardBox.innerHTML = ``
