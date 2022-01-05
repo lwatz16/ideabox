@@ -13,7 +13,16 @@ function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value)
   ideas.push(newIdea);
   makeCard();
+  // titleInput.value = "";
+  // bodyInput.value = "";
+  clearInput(titleInput);
+  clearInput(bodyInput);
 }
+
+function clearInput(input){
+  input.value = "";
+}
+
 
 function makeCard() {
   cardBox.innerHTML = ``
