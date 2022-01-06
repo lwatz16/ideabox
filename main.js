@@ -55,20 +55,23 @@ function makeCard() {
 
 cardBox.addEventListener('click', deleteCard);
 
-function deleteCard(event) {
-  var id = event.target.id;
-  console.log(event.target);
+function deleteCard(e) {
+  var id = e.target.parentNode.parentNode.id;
+
+  if (e.target && e.target.matches('.delete')) {
+    for (var i = 0; i < ideas.length; i++) {
+      if (id === ideas[i].id.toString()) {
+        ideas.splice(i, 1);
+      }
+    }
+    makeCard();
+  }
 }
 
 // Goal: remove the card instance from array and view
 // Target the element clicked
 // Find the card id associated with the element clicked
+//  - Capture the event that is clicked (delete)
+//  - bubble up 2 levels to the grandparent div (id)
 // Match the id to the array of ideas
 // if id is found in the array, delete the card from the array and view
-// target.parentNode.id
-
-
-// cardBox.addEventListener('click', event => {
-//   var id = event.target.id;
-//   console.log(id);
-// });
