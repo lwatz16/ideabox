@@ -6,6 +6,7 @@ var titleInput = document.getElementById('title');
 var bodyInput = document.getElementById('body');
 var searchIdeas = document.getElementById('search-ideas');
 var cardBox = document.querySelector('.card-box');
+// var starIcon = document.querySelector('.star');
 
 saveButton.addEventListener('click', createIdea);
 saveButton.disabled = true;
@@ -53,25 +54,56 @@ function makeCard() {
     }
 }
 
-cardBox.addEventListener('click', deleteCard);
+// cardBox.addEventListener('click', deleteCard);
 
 function deleteCard(e) {
   var id = e.target.parentNode.parentNode.id;
 
-  if (e.target && e.target.matches('.delete')) {
-    for (var i = 0; i < ideas.length; i++) {
-      if (id === ideas[i].id.toString()) {
-        ideas.splice(i, 1);
-      }
+  for (var i = 0; i < ideas.length; i++) {
+    if (id === ideas[i].id.toString()) {
+      ideas.splice(i, 1);
     }
-    makeCard();
   }
+
+  makeCard();
 }
 
-// Goal: remove the card instance from array and view
-// Target the element clicked
-// Find the card id associated with the element clicked
-//  - Capture the event that is clicked (delete)
-//  - bubble up 2 levels to the grandparent div (id)
-// Match the id to the array of ideas
-// if id is found in the array, delete the card from the array and view
+function favoriteCard(e) {
+  /*
+  target the CSS class
+  bubble up to the id
+  find the index of the idea in the array
+  use updateIdea method from class Idea
+    - reassign star to true
+    - show active star
+    - hide inactive star
+    - may need conditional??
+  */
+
+  var id = e.target.parentNode.parentNode.id;
+  console.log(ideas);
+  for (var i = 0; i < ideas.length; i++) {
+    if (id === ideas[i].id.toString()) {
+      ideas[i].updateIdea();
+      console.log(ideas[i]);
+    }
+  }
+
+
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+cardBox.addEventListener('click', function(e) {
+  if (e.target && e.target.matches('.delete')) {
+    deleteCard(e);
+  } else if (e.target && e.target.matches('.star')) {
+    favoriteCard(e);
+  }
+});
