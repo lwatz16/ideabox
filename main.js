@@ -8,37 +8,27 @@ var searchIdeas = document.getElementById('search-ideas');
 var cardBox = document.querySelector('.card-box');
 
 saveButton.addEventListener('click', createIdea);
-// title.addEventListener('input', activateSaveButton);
-// body.addEventListener('input', activateSaveButton);
 saveButton.disabled = true;
 body.addEventListener('input', event => {
   if (titleInput.value.length > 0 && bodyInput.value.length > 0) {
     saveButton.disabled = false;
+    saveButton.classList.remove('greyed');
   }
 })
-
-
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value)
   ideas.push(newIdea);
   makeCard();
-  // titleInput.value = "";
-  // bodyInput.value = "";
   clearInput(titleInput);
   clearInput(bodyInput);
   saveButton.disabled = true;
+  saveButton.classList.add('greyed');
 }
 
-function clearInput(input){
+function clearInput(input) {
   input.value = "";
 }
-
-// function activateSaveButton(){
-//   if (titleInput && bodyInput) {
-//     saveButton.disabled = false;
-//   }
-// }
 
 function makeCard() {
   cardBox.innerHTML = ``
@@ -63,8 +53,10 @@ function makeCard() {
     }
 }
 
-// function makeCard() {
-//   cardBox.innerHTML =
-//   `<h1>HEY</h1>`
-//   console.log("Something happened");
+// function add(element, selector) {
+//   element.classList.add(selector);
+// }
+//
+// function remove(element, selector) {
+//   element.classList.remove(selector);
 // }
