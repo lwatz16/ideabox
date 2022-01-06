@@ -53,10 +53,22 @@ function makeCard() {
     }
 }
 
-// function add(element, selector) {
-//   element.classList.add(selector);
-// }
-//
-// function remove(element, selector) {
-//   element.classList.remove(selector);
-// }
+cardBox.addEventListener('click', deleteCard);
+
+function deleteCard(event) {
+  var id = event.target.id;
+  console.log(event.target);
+}
+
+// Goal: remove the card instance from array and view
+// Target the element clicked
+// Find the card id associated with the element clicked
+// Match the id to the array of ideas
+// if id is found in the array, delete the card from the array and view
+// target.parentNode.id
+
+
+// cardBox.addEventListener('click', event => {
+//   var id = event.target.id;
+//   console.log(id);
+// });
