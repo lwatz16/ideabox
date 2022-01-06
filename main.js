@@ -48,8 +48,8 @@ function makeCard() {
     <div class="bottom-bar">
       <img class="comment icon" src="./assets/comment.svg" alt="comment">
       <h3 class="comment">Comment</h3>
-      </div>
-    </div>`
+    </div>
+  </div>`
     }
 }
 
