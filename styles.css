@@ -72,6 +72,12 @@ label {
 	display: none!important;
 }
 
+.greyed:hover {
+  background-color: grey;
+  cursor: not-allowed;
+  /* pointer-events: none; */
+}
+
 h1 {
   color: #E9E9F3;
   margin-left: 6%;
