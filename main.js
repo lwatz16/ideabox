@@ -45,39 +45,47 @@ function makeCard() {
   cardBox.innerHTML = ``
   for (var i=0; i<ideas.length; i++) {
     if (ideas[i].star === false) {
-      cardBox.innerHTML += `
-      <div class="card" id=${ideas[i].id}>
-        <div class="top-bar">
-          <img class="star icon" src="./assets/star.svg" alt="star">
-          <img class="delete icon" src="./assets/delete.svg" alt="delete">
-        </div>
-        <section class="idea-section">
-          <h2>${ideas[i].title}</h2>
-          <p>${ideas[i].body}</p>
-        </section>
-        <div class="bottom-bar">
-          <img class="comment icon" src="./assets/comment.svg" alt="comment">
-          <h3 class="comment">Comment</h3>
-        </div>
-      </div>`
+      createUnstarredCard(ideas[i]);
     } else if (ideas[i].star === true) {
-      cardBox.innerHTML += `
-      <div class="card" id=${ideas[i].id}>
-        <div class="top-bar">
-          <img class="star-active icon" src="./assets/star-active.svg" alt="star">
-          <img class="delete icon" src="./assets/delete.svg" alt="delete">
-        </div>
-        <section class="idea-section">
-          <h2>${ideas[i].title}</h2>
-          <p>${ideas[i].body}</p>
-        </section>
-        <div class="bottom-bar">
-          <img class="comment icon" src="./assets/comment.svg" alt="comment">
-          <h3 class="comment">Comment</h3>
-        </div>
-      </div>`
+      createStarredCard(ideas[i]);
     }
   }
+}
+
+function createStarredCard(idea) {
+  cardBox.innerHTML += `
+  <div class="card" id=${idea.id}>
+    <div class="top-bar">
+      <img class="star-active icon" src="./assets/star-active.svg" alt="star">
+      <img class="delete icon" src="./assets/delete.svg" alt="delete">
+    </div>
+    <section class="idea-section">
+      <h2>${idea.title}</h2>
+      <p>${idea.body}</p>
+    </section>
+    <div class="bottom-bar">
+      <img class="comment icon" src="./assets/comment.svg" alt="comment">
+      <h3 class="comment">Comment</h3>
+    </div>
+  </div>`
+}
+
+function createUnstarredCard(idea) {
+  cardBox.innerHTML += `
+  <div class="card" id=${idea.id}>
+    <div class="top-bar">
+      <img class="star icon" src="./assets/star.svg" alt="star">
+      <img class="delete icon" src="./assets/delete.svg" alt="delete">
+    </div>
+    <section class="idea-section">
+      <h2>${idea.title}</h2>
+      <p>${idea.body}</p>
+    </section>
+    <div class="bottom-bar">
+      <img class="comment icon" src="./assets/comment.svg" alt="comment">
+      <h3 class="comment">Comment</h3>
+    </div>
+  </div>`
 }
 
 function deleteCard(e) {
