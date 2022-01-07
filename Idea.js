@@ -7,7 +7,7 @@ class Idea {
   }
 
   saveToStorage() {
-    // should only have one job which is to save the instance to storage
+
   }
 
   deleteFromStorage() {
@@ -15,6 +15,10 @@ class Idea {
   }
 
   updateIdea() {
-    // should update the idea’s starred state
+    if (!this.star) {
+      this.star = true;
+    } else {
+      this.star = false;
+    }
   }
 }

@@ -1,4 +1,3 @@
-// global variable
 var ideas = [];
 
 var saveButton = document.getElementById('save-button');
@@ -7,14 +6,26 @@ var bodyInput = document.getElementById('body');
 var searchIdeas = document.getElementById('search-ideas');
 var cardBox = document.querySelector('.card-box');
 
+window.addEventListener('load', function() {
+  saveButton.disabled = true;
+});
 saveButton.addEventListener('click', createIdea);
-saveButton.disabled = true;
 body.addEventListener('input', event => {
   if (titleInput.value.length > 0 && bodyInput.value.length > 0) {
     saveButton.disabled = false;
     saveButton.classList.remove('greyed');
   }
 })
+
+cardBox.addEventListener('click', function(e) {
+  if (e.target && e.target.matches('.delete')) {
+    deleteCard(e);
+  } else if (e.target && e.target.matches('.star')) {
+    favoriteCard(e);
+  } else if (e.target && e.target.matches('.star-active')) {
+    favoriteCard(e);
+  }
+});
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value)
@@ -33,30 +44,66 @@ function clearInput(input) {
 function makeCard() {
   cardBox.innerHTML = ``
   for (var i=0; i<ideas.length; i++) {
-  cardBox.innerHTML += `
-  <div class="card" id=${ideas[i].id}>
-    <div class="top-bar">
-      <img class="star-active icon hidden" src="./assets/star-active.svg" alt="star-active">
-      <img class="star icon" src="./assets/star.svg" alt="star">
-      <img class="delete-active icon hidden" src="./assets/delete-active.svg" alt="delete-active">
-      <img class="delete icon" src="./assets/delete.svg" alt="delete">
-    </div>
-    <section class="idea-section">
-      <h2>${ideas[i].title}</h2>
-      <p>${ideas[i].body}</p>
-    </section>
-    <div class="bottom-bar">
-      <img class="comment icon" src="./assets/comment.svg" alt="comment">
-      <h3 class="comment">Comment</h3>
-      </div>
-    </div>`
+    if (ideas[i].star === false) {
+      cardBox.innerHTML += `
+      <div class="card" id=${ideas[i].id}>
+        <div class="top-bar">
+          <img class="star icon" src="./assets/star.svg" alt="star">
+          <img class="delete icon" src="./assets/delete.svg" alt="delete">
+        </div>
+        <section class="idea-section">
+          <h2>${ideas[i].title}</h2>
+          <p>${ideas[i].body}</p>
+        </section>
+        <div class="bottom-bar">
+          <img class="comment icon" src="./assets/comment.svg" alt="comment">
+          <h3 class="comment">Comment</h3>
+        </div>
+      </div>`
+    } else if (ideas[i].star === true) {
+      cardBox.innerHTML += `
+      <div class="card" id=${ideas[i].id}>
+        <div class="top-bar">
+          <img class="star-active icon" src="./assets/star-active.svg" alt="star">
+          <img class="delete icon" src="./assets/delete.svg" alt="delete">
+        </div>
+        <section class="idea-section">
+          <h2>${ideas[i].title}</h2>
+          <p>${ideas[i].body}</p>
+        </section>
+        <div class="bottom-bar">
+          <img class="comment icon" src="./assets/comment.svg" alt="comment">
+          <h3 class="comment">Comment</h3>
+        </div>
+      </div>`
     }
+  }
 }
 
-// function add(element, selector) {
-//   element.classList.add(selector);
-// }
-//
-// function remove(element, selector) {
-//   element.classList.remove(selector);
-// }
+function deleteCard(e) {
+  var id = e.target.parentNode.parentNode.id;
+  for (var i = 0; i < ideas.length; i++) {
+    if (id === ideas[i].id.toString()) {
+      ideas.splice(i, 1);
+    }
+  }
+  makeCard();
+}
+
+function favoriteCard(e) {
+  var id = e.target.parentNode.parentNode.id;
+  for (var i = 0; i < ideas.length; i++) {
+    if (id === ideas[i].id.toString()) {
+      ideas[i].updateIdea();
+    }
+  }
+  makeCard();
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
