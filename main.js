@@ -1,10 +1,12 @@
 var ideas = [];
+var starButtonStatus = false;
 
 var saveButton = document.getElementById('save-button');
 var titleInput = document.getElementById('title');
 var bodyInput = document.getElementById('body');
 var searchIdeas = document.getElementById('search-ideas');
 var cardBox = document.querySelector('.card-box');
+var starToggleButton = document.querySelector('.show-starred-button');
 
 window.addEventListener('load', function() {
   saveButton.disabled = true;
@@ -27,6 +29,19 @@ cardBox.addEventListener('click', function(e) {
   }
 });
 
+starToggleButton.addEventListener('click', updateButtonStatus);
+
+function updateButtonStatus() {
+  if (starButtonStatus === false) {
+    starToggleButton.innerText = 'Show All Ideas';
+    starButtonStatus = true;
+  } else {
+    starToggleButton.innerText = 'Show Starred Ideas';
+    starButtonStatus = false;
+  }
+  makeCard();
+}
+
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value)
   ideas.push(newIdea);
@@ -43,11 +58,19 @@ function clearInput(input) {
 
 function makeCard() {
   cardBox.innerHTML = ``
-  for (var i=0; i<ideas.length; i++) {
-    if (ideas[i].star === false) {
-      createUnstarredCard(ideas[i]);
-    } else if (ideas[i].star === true) {
-      createStarredCard(ideas[i]);
+  if (starButtonStatus === false) {
+    for (var i=0; i<ideas.length; i++) {
+      if (ideas[i].star === false) {
+        createUnstarredCard(ideas[i]);
+      } else if (ideas[i].star === true) {
+        createStarredCard(ideas[i]);
+      }
+    }
+  } else if (starButtonStatus === true) {
+    for (var i=0; i<ideas.length; i++) {
+      if (ideas[i].star === true) {
+        createStarredCard(ideas[i]);
+      }
     }
   }
 }
@@ -107,6 +130,16 @@ function favoriteCard(e) {
   }
   makeCard();
 }
+
+// function makeFavoriteCards() {
+//   starToggleButton.innerText = 'Show All Ideas';
+//   cardBox.innerHTML = ``;
+//   for (var i=0; i<ideas.length; i++) {
+//     if (ideas[i].star === true) {
+//     createStarredCard(ideas[i])
+//     }
+//   }
+// }
 
 function show(element) {
   element.classList.remove('hidden');
