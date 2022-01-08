@@ -1,5 +1,6 @@
 var ideas = [];
 var starButtonStatus = false;
+var filteredCards = [];
 
 var saveButton = document.getElementById('save-button');
 var titleInput = document.getElementById('title');
@@ -31,6 +32,21 @@ cardBox.addEventListener('click', function(e) {
 
 starToggleButton.addEventListener('click', updateButtonStatus);
 
+searchIdeas.addEventListener('input', function(e) {
+  if (searchIdeas.value.length > 0) {
+    var input = searchIdeas.value.toLowerCase();
+    filteredCards = [];
+    for (var i=0; i < ideas.length; i++) {
+      if (ideas[i].title.includes(input) || ideas[i].body.includes(input)) {
+        filteredCards.push(ideas[i]);
+      }
+    }
+    makeCard(filteredCards);
+  } else {
+    makeCard(ideas);
+  }
+});
+
 function updateButtonStatus() {
   if (starButtonStatus === false) {
     starToggleButton.innerText = 'Show All Ideas';
@@ -39,13 +55,13 @@ function updateButtonStatus() {
     starToggleButton.innerText = 'Show Starred Ideas';
     starButtonStatus = false;
   }
-  makeCard();
+  makeCard(ideas);
 }
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value)
   ideas.push(newIdea);
-  makeCard();
+  makeCard(ideas);
   clearInput(titleInput);
   clearInput(bodyInput);
   saveButton.disabled = true;
@@ -56,24 +72,49 @@ function clearInput(input) {
   input.value = "";
 }
 
-function makeCard() {
+function makeCard(arrayName) {
   cardBox.innerHTML = ``
   if (starButtonStatus === false) {
-    for (var i=0; i<ideas.length; i++) {
-      if (ideas[i].star === false) {
-        createUnstarredCard(ideas[i]);
-      } else if (ideas[i].star === true) {
-        createStarredCard(ideas[i]);
+    for (var i=0; i<arrayName.length; i++) {
+      if (arrayName[i].star === false) {
+        createUnstarredCard(arrayName[i]);
+      } else if (arrayName[i].star === true) {
+        createStarredCard(arrayName[i]);
       }
     }
   } else if (starButtonStatus === true) {
-    for (var i=0; i<ideas.length; i++) {
-      if (ideas[i].star === true) {
-        createStarredCard(ideas[i]);
+    for (var i=0; i<arrayName.length; i++) {
+      if (arrayName[i].star === true) {
+        createStarredCard(arrayName[i]);
       }
     }
   }
 }
+//
+// function makeCard() {
+//   cardBox.innerHTML = ``
+//   if (starButtonStatus === false) {
+//     for (var i=0; i<ideas.length; i++) {
+//       if (ideas[i].star === false) {
+//         createUnstarredCard(ideas[i]);
+//       } else if (ideas[i].star === true) {
+//         createStarredCard(ideas[i]);
+//       }
+//     }
+//   } else if (starButtonStatus === true) {
+//     for (var i=0; i<ideas.length; i++) {
+//       if (ideas[i].star === true) {
+//         createStarredCard(ideas[i]);
+//       }
+//     }
+//   }
+// }
+// goal: display only the cards that exactly match the same characters in the same order
+// access the text values of title input and body input
+// if there are 1 or more letters in the field, check the string of current letters
+// against each of the cards in the array
+// if the card matches the input, keep the card up
+// if the card doesn't match, do not display card
 
 function createStarredCard(idea) {
   cardBox.innerHTML += `
@@ -118,7 +159,7 @@ function deleteCard(e) {
       ideas.splice(i, 1);
     }
   }
-  makeCard();
+  makeCard(ideas);
 }
 
 function favoriteCard(e) {
@@ -128,18 +169,8 @@ function favoriteCard(e) {
       ideas[i].updateIdea();
     }
   }
-  makeCard();
+  makeCard(ideas);
 }
-
-// function makeFavoriteCards() {
-//   starToggleButton.innerText = 'Show All Ideas';
-//   cardBox.innerHTML = ``;
-//   for (var i=0; i<ideas.length; i++) {
-//     if (ideas[i].star === true) {
-//     createStarredCard(ideas[i])
-//     }
-//   }
-// }
 
 function show(element) {
   element.classList.remove('hidden');
