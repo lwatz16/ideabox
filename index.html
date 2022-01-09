@@ -12,7 +12,7 @@
 				<h1>IdeaBox</h1>
 				<hr>
 				<h3 class="filter-sidebar">Filter Starred Ideas</h3>
-				<button class="show-starred-button" type="button" name="show-starred" id="show-starred-button">Show Starred Ideas</button>
+				<button class="show-starred-button" type="button" name="show-starred" id="starToggleButton">Show Starred Ideas</button>
 				<hr>
 			</section>
 			<main>
@@ -26,39 +26,20 @@
 							<label for="body">Body</label>
 							<input class="body" type="text" name="body" value="" id="body">
 						</div>
-						<button class="save-button greyed" type="button" name="save-button" id="save-button">Save</button>
+						<button class="save-button greyed" type="button" name="save-button" id="saveButton">Save</button>
 						<div class="search-input">
 							<img class="search-icon" src="./assets/search.svg" alt="magnifying-glass">
-							<input class="search-ideas" type="text" name="search" placeholder="Search ideas" id="search-ideas">
+							<input class="search-ideas" type="text" name="search" placeholder="Search ideas" id="searchIdeas">
 						</div>
-				</div>
+					</div>
 				</section>
-				<section class="card-box">
-					<!-- <div class="card"> -->
-						<!-- <div class="top-bar"> -->
-							<!-- <img class="star-active icon hidden" src="./assets/star-active.svg" alt="star-active"> -->
-							<!-- <img class="star icon" src="./assets/star.svg" alt="star"> -->
-							<!-- <img class="delete-active icon hidden" src="./assets/delete-active.svg" alt="delete-active"> -->
-							<!-- <img class="delete icon" src="./assets/delete.svg" alt="delete"> -->
-						<!-- </div> -->
-						<!-- <section class="idea-section"> -->
-							<!-- <h2>Idea Title</h2> -->
-							<!-- <p>Content goes here</p>
-						</section>
-						<div class="bottom-bar">
-							<img class="comment icon" src="./assets/comment.svg" alt="comment">
-							<h3 class="comment">Comment</h3>
-							</div>
-						</div> -->
-					</section>
-
+				<section class="card-box" id="cardBox">
+					<!-- idea cards go here -->
+				</section>
 			</main>
-
-
-
-
 		</div>
 		<script src="./Idea.js"></script>
+		<script src="./data.js"></script>
 		<script src="./main.js"></script>
 	</body>
 </html>
