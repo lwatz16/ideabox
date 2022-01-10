@@ -50,7 +50,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .top-bar {
   display: flex;
   height: 12%;
-  background-color: #1F1E3D;
+  background-color: #1F1F3D;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -58,7 +58,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .bottom-bar {
   display: flex;
   height: 12%;
-  background-color: #5356A5;
+  background-color: #5356A4;
   flex-direction: row;
   align-items: center;
 }
@@ -101,20 +101,23 @@ main {
 .card-box {
   display: flex;
   background-color: #EAEAF4;
-  flex-direction: column;
+  flex-direction: row;
   height: 57%;
+  flex-wrap: wrap;
+  /* justify-content: center; */
 }
 
 .idea-section {
   background-color: #EAEAF4;
   height: 76%;
+  padding: 6%;
 }
 
 input {
   border: solid;
   border-color: #6B6DB0;
   border-width: 1.5px;
-  border-radius: 3px;
+  border-radius: 0px 3px 3px 0px;
   height FONT-WEIGHT: 100;
 }
 
@@ -125,11 +128,26 @@ label {
 
 h1 {
   color: #E9E9F3;
-  margin-left: 6%;
+  margin: 6%;
+  font-size: 16px;
+}
+
+h2, p {
+  font-size: 16px;
 }
 
 hr {
   border: 1px solid #353567;
+}
+
+button {
+  border-width: thin;
+  border-style: solid;
+  border-color: #353567;
+  border-radius: 2px;
+  color: #E9E9F3;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .search-icon {
@@ -142,16 +160,18 @@ hr {
 }
 
 .comment {
-  color: #E9E9F3;}
+  color: #E9E9F3;
+  font-size: 13px;
+}
 
 .save-button {
   background-color: #353564;
-  color: white;
-  font-weight: bold;
   height: 11%;
 }
 
-.title {height: 100%;}
+.title {
+  height: 100%;
+}
 
 .body {
   height: 100%;
@@ -168,15 +188,17 @@ hr {
 
 .filter-sidebar {
   color: #5356A5;
-  margin-left: 6%;
-
+  margin: 6%;
+  font-size: 12px;
+  color: #BFBFDD;
 }
 
 .show-starred-button {
-  background-color: #474A9A;
-  color: white;
+  background-color: #5356A4;
   width: 80%;
-  height: 4%;
+  height: 5%;
+  margin-bottom: 9%;
+  align-self: center;
 }
 
 .input-fields {
@@ -194,13 +216,14 @@ hr {
 }
 
 .card {
-  height: 50%;
-  width: 29%;
+  height: 30vh;
+  width: 27vh;
   flex-direction: column;
   border: solid;
   border-color: #37376B;
   border-width: 3px;
-  margin: 2vh;
+  margin: 3vh;
+  /* display: flex; */
 }
 
 .icon {
