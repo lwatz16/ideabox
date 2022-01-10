@@ -13,11 +13,8 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 body {
-  /* display: flex; */
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  flex-direction: row;
-  /* flex-wrap: nowrap; */
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -31,99 +28,13 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 /*~~~~~~~~~~~~~~~END RESET~~~~~~~~~~~~~~~~~~~~~*/
 
-/*~~~~~~~~~~~~~~~MAIN LAYOUT~~~~~~~~~~~~~~~~~~~~~*/
-.container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-.side-bar {
-	display: flex;
-	width: 24%;
-	background-color: #1F1E3D;
-	flex-direction: column;
-}
-
-.top-bar {
-  display: flex;
-  height: 12%;
-  background-color: #1F1F3D;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.bottom-bar {
-  display: flex;
-  height: 12%;
-  background-color: #5356A4;
-  flex-direction: row;
-  align-items: center;
-}
-
-.title-input {
-  display: flex;
-  flex-direction: column;
-  height: 19%;
-}
-
-.body-input {
-  display: flex;
-  flex-direction: column;
-  height: 30%;
-}
-
-.search-input {
-  display: flex;
-  flex-direction: row;
-  height: 11%;
-}
-
+/*~~~~~~~~~~~~~~~MAIN~~~~~~~~~~~~~~~~~~~~~*/
 main {
   height: 100%;
   width: 76%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-}
-
-.form-box {
-  display: flex;
-  height: 43%;
-  background-color: #A8AAD1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.card-box {
-  display: flex;
-  background-color: #EAEAF4;
-  flex-direction: row;
-  height: 57%;
-  flex-wrap: wrap;
-  /* justify-content: center; */
-}
-
-.idea-section {
-  background-color: #EAEAF4;
-  height: 76%;
-  padding: 6%;
-}
-
-input {
-  border: solid;
-  border-color: #6B6DB0;
-  border-width: 1.5px;
-  border-radius: 0px 3px 3px 0px;
-  height FONT-WEIGHT: 100;
-}
-
-label {
-  font-weight: bold;
-  color: #1F1F3D;
 }
 
 h1 {
@@ -140,6 +51,19 @@ hr {
   border: 1px solid #353567;
 }
 
+label {
+  font-weight: bold;
+  color: #1F1F3D;
+}
+
+input {
+  border: solid;
+  border-color: #6B6DB0;
+  border-width: 1.5px;
+  border-radius: 0px 3px 3px 0px;
+  height FONT-WEIGHT: 100;
+}
+
 button {
   border-width: thin;
   border-style: solid;
@@ -150,40 +74,20 @@ button {
   cursor: pointer;
 }
 
-.search-icon {
-  background-color: #353564;
-  padding: 0.8vh;
-}
-
-::placeholder {
-  color: #5356A4;
-}
-
-.comment {
-  color: #E9E9F3;
-  font-size: 13px;
-}
-
-.save-button {
-  background-color: #353564;
-  height: 11%;
-}
-
-.title {
+.container {
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.body {
-  height: 100%;
-}
-
-.hidden {
-	display: none!important;
-}
-
-.greyed:hover {
-  background-color: grey;
-  cursor: not-allowed;
+/*~~~~~~~~~~~~~~~SIDE BAR~~~~~~~~~~~~~~~~~~~~~*/
+.side-bar {
+	display: flex;
+	width: 24%;
+	background-color: #1F1E3D;
+	flex-direction: column;
 }
 
 .filter-sidebar {
@@ -201,6 +105,16 @@ button {
   align-self: center;
 }
 
+/*~~~~~~~~~~~~~~~FORM BOX~~~~~~~~~~~~~~~~~~~~~*/
+.form-box {
+  display: flex;
+  height: 43%;
+  background-color: #A8AAD1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .input-fields {
   display: flex;
   height: 100%;
@@ -209,23 +123,104 @@ button {
   justify-content: space-evenly;
 }
 
+.title-input {
+  display: flex;
+  flex-direction: column;
+  height: 19%;
+}
+
+.title {
+  height: 100%;
+}
+
+.body-input {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+}
+
+.body {
+  height: 100%;
+}
+
+.save-button {
+  background-color: #353564;
+  height: 11%;
+}
+
+.greyed:hover {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.search-input {
+  display: flex;
+  flex-direction: row;
+  height: 11%;
+}
+
+.search-icon {
+  background-color: #353564;
+  padding: 0.8vh;
+}
+
 .search-ideas {
   width: 94%;
   font-size: smaller;
   padding-left: 1%;
 }
 
+::placeholder {
+  color: #5356A4;
+}
+
+/*~~~~~~~~~~~~~~~CARD BOX~~~~~~~~~~~~~~~~~~~~~*/
+.card-box {
+  display: flex;
+  background-color: #EAEAF4;
+  flex-direction: row;
+  height: 57%;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
 .card {
-  height: 30vh;
-  width: 27vh;
+  height: 37vh;
+  width: 29vh;
   flex-direction: column;
   border: solid;
   border-color: #37376B;
   border-width: 3px;
   margin: 3vh;
-  /* display: flex; */
+}
+
+.top-bar {
+  display: flex;
+  height: 12%;
+  background-color: #1F1F3D;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .icon {
   height: 3vh;
+}
+
+.idea-section {
+  background-color: #EAEAF4;
+  height: 76%;
+  padding: 6%;
+}
+
+.bottom-bar {
+  display: flex;
+  height: 12%;
+  background-color: #5356A4;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment {
+  color: #E9E9F3;
+  font-size: 13px;
 }
