@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 </head>
-	<body>
-		<div class="container">
-			<section class="side-bar">
-				<h1>IdeaBox</h1>
-				<hr>
-				<h3 class="filter-sidebar">Filter Starred Ideas</h3>
-				<button class="show-starred-button" type="button" name="show-starred" id="starToggleButton">Show Starred Ideas</button>
-				<hr>
-			</section>
-			<main>
-				<section class="form-box">
-					<div class="input-fields">
-						<div class="title-input">
-							<label for="title">Title</label>
-							<input class="title" type="text" name="title" value="" id="title">
-						</div>
-						<div class="body-input">
-							<label for="body">Body</label>
-							<input class="body" type="text" name="body" value="" id="body">
-						</div>
-						<button class="save-button greyed" type="button" name="save-button" id="saveButton">Save</button>
-						<div class="search-input">
-							<img class="search-icon" src="./assets/search.svg" alt="magnifying-glass">
-							<input class="search-ideas" type="text" name="search" placeholder="Search ideas" id="searchIdeas">
-						</div>
+
+<body>
+	<div class="container">
+		<section class="side-bar">
+			<h1>IdeaBox</h1>
+			<hr>
+			<h3 class="filter-sidebar">Filter Starred Ideas</h3>
+			<button class="show-starred-button" type="button" name="show-starred" id="starToggleButton">Show Starred Ideas</button>
+			<hr>
+		</section>
+		<main>
+			<section class="form-box" id="formBox">
+				<div class="input-fields">
+					<div class="title-input">
+						<label for="title">Title</label>
+						<input class="title" type="text" name="title" value="" id="title">
 					</div>
-				</section>
-				<section class="card-box" id="cardBox">
-					<!-- idea cards go here -->
-				</section>
-			</main>
-		</div>
-		<script src="./Idea.js"></script>
-		<script src="./data.js"></script>
-		<script src="./main.js"></script>
-	</body>
+					<div class="body-input">
+						<label for="body">Body</label>
+						<input class="body" type="text" name="body" value="" id="body">
+					</div>
+					<button class="save-button greyed" type="button" name="save-button" id="saveButton">Save</button>
+					<div class="search-input">
+						<img class="search-icon" src="./assets/search.svg" alt="magnifying-glass">
+						<input class="search-ideas" type="text" name="search" placeholder="Search ideas" id="searchIdeas">
+					</div>
+				</div>
+			</section>
+			<section class="card-box" id="cardBox">
+				<!-- idea cards go here -->
+			</section>
+		</main>
+	</div>
+	<script src="./Idea.js"></script>
+	<script src="./data.js"></script>
+	<script src="./main.js"></script>
+</body>
+
 </html>

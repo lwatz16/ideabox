@@ -6,14 +6,6 @@ class Idea {
     this.star = false;
   }
 
-  saveToStorage() {
-
-  }
-
-  deleteFromStorage() {
-
-  }
-
   updateIdea() {
     if (!this.star) {
       this.star = true;
