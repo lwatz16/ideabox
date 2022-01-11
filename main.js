@@ -49,11 +49,13 @@ function saveIdea() {
 }
 
 function filterSearch() {
-	if (searchIdeas.value.length > 0) {
+	if (searchIdeas.value) {
 		filteredCards = [];
 		var input = searchIdeas.value.toLowerCase();
 		for (var i = 0; i < ideas.length; i++) {
-			if (ideas[i].title.includes(input) || ideas[i].body.includes(input)) {
+			var ideaTitle = ideas[i].title.toLowerCase();
+			var ideaBody = ideas[i].body.toLowerCase();
+			if (ideaTitle.includes(input) || ideaBody.includes(input)) {
 				filteredCards.push(ideas[i]);
 			}
 		}
